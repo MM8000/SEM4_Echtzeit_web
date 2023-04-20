@@ -81,6 +81,14 @@
   color: white;
 }
 
+.custom-paragraph {
+  margin: 2em 0 2em 0;
+}
+
+.custom-btndiv {
+  margin: 2em 0 2em 0;
+}
+
 /* Card-Boxes-Posts */
 .card-text {
   height: 4.5em;
