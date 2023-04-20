@@ -38,30 +38,30 @@
 }
 
 /*header Custom CSS */
-.custom_bg1 {
+.custom-bg1 {
   background-color: var(--custom-grade-blk);
 }
 
-.custom_anchor1 {
+.custom-anchor1 {
   color:var(--cutom-white);
 }
 
-.custom_heading4 {
+.custom-heading4 {
   color:var(--cutom-white);
 }
 
-.custom_text1 {
+.custom-text1 {
   color:var(--cutom-white);
 }
 
-.custom_headerbg {
+.custom-headerbg {
   
   background-image: var(--custom-line-grade-blk50), url('../assets/unsplash-photo-1.jpg');
   background-size: cover;
   background-position: center center;
 }
 
-.custom_flexdiv1 {
+.custom-flexdiv1 {
   
   display: flex;
   flex-direction: column;
@@ -71,12 +71,18 @@
 
 /* HERO Custom CSS*/
 
-.custom_loginbtn {
+.custom-loginbtn {
   background-color: black;
   color: white;
 }
 
-.custom_signbtn {
+.custom-signbtn {
   background-color: rgb(18, 1, 73);
   color: white;
+}
+
+/* Card-Boxes-Posts */
+.card-text {
+  height: 4.5em;
+  overflow: hidden;
 }
