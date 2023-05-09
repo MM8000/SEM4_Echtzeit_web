@@ -37,7 +37,10 @@
 *::after {
   box-sizing: border-box;
 }
-
+// Color mode variables in _root.scss
+@include color-mode(dark) {
+  // CSS variable overrides here...
+}
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;

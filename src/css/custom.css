@@ -94,3 +94,18 @@
   height: 4.5em;
   overflow: hidden;
 }
+
+/*popup*/
+.popup {
+  position: fixed;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  z-index: 9999;
+}
+
+.comment-field {
+  max-height: 100px; /* Set a maximum height for the comment field */
+  overflow-y: auto; /* Add vertical scrollbars to the comment field */
+}
