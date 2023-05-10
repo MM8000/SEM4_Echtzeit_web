@@ -56,19 +56,39 @@ function likePost(button) {
   
 
   
-  // Select all "View" buttons
-var viewButtons = document.querySelectorAll('.btn-group button:nth-child(1)');
+ // Get all "View" buttons
+var viewButtons = document.querySelectorAll('.view-button');
 
-// Loop through all "View" buttons and add a click event listener
+// Add a click event listener to each "View" button
 viewButtons.forEach(function(viewButton) {
   viewButton.addEventListener('click', function() {
-    // Get the parent element of the button (the card)
-    var card = viewButton.closest('.card');
-    // Get the card body element
-    var cardBody = card.querySelector('.card-body');
-    // Create a new popup window
-    var popup = window.open('', 'popup', 'width=600,height=400,top=50,left=50');
-    // Write the HTML content of the card body to the popup window
-    popup.document.write(cardBody.innerHTML);
+    // Create the popup container
+    var popupContainer = document.createElement('div');
+    popupContainer.classList.add('popup');
+
+    // Create the popup content
+    var popupContent = document.createElement('div');
+    popupContent.classList.add('popup-content');
+
+    // Clone the col element
+    var colElement = viewButton.closest('.col');
+    var colClone = colElement.cloneNode(true);
+
+    // Append the cloned col element to the popup content
+    popupContent.appendChild(colClone);
+
+    // Append the popup content to the popup container
+    popupContainer.appendChild(popupContent);
+
+    // Append the popup container to the modal container
+    var modalContainer = document.getElementById('modal-container');
+    modalContainer.appendChild(popupContainer);
+
+    // Close the popup when clicking outside the popup content
+    popupContainer.addEventListener('click', function(event) {
+      if (event.target === popupContainer) {
+        popupContainer.remove();
+      }
+    });
   });
 });
