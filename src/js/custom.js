@@ -1,28 +1,28 @@
 // Function to handle clicking the "Like" button
 function likePost(button) {
-    // Toggle the "liked" class on the parent card
-    button.closest(".card").classList.toggle("liked");
-  }
+  // Get the parent col element
+  const col = button.closest(".col");
 
-    //Like-btn
-    function likePost() {
-      // Get the like count element
-      const likeCount = document.getElementById("like-count");
-      
-      // Increment the like count by 1
-      const count = parseInt(likeCount.innerText) + 1;
-      likeCount.innerText = count;
-      
-      // Replace the like text with a heart icon
-      const likeBtn = document.getElementById("like-btn");
-      likeBtn.innerHTML = '<div class="heart-icon">&#x1F497;</div>';
-    }
+  // Get the like count element within the same col element
+  const likeCount = col.querySelector(".like-count");
+
+  // Increment the like count by 1
+  const count = parseInt(likeCount.innerText) + 1;
+  likeCount.innerText = count;
+}
+
   
 
   // Function to handle clicking the "Comment" button
   function showCommentField(button) {
-    // Toggle the "d-none" class on the comment field
-    button.closest(".card").querySelector(".comment-field").classList.toggle("d-none");
+    
+    //no show!
+    //var commentField = button.closest('.card-body').querySelector('.custom-comment-field');
+  //commentField.classList.toggle('d-none');
+  //commentField.querySelector('input').focus();
+    
+  // Toggle the "d-none" class on the comment field
+    button.closest(".card").querySelector(".custom-comment-field").classList.toggle("d-none");
   }
   
   // Function to handle submitting a comment
@@ -39,7 +39,7 @@ function likePost(button) {
     cardBody.insertBefore(commentElement, cardBody.lastChild);
     
     // Clear the comment field
-    button.closest(".comment-field").querySelector("input").value = "";
+    button.closest(".custom-comment-field").querySelector("input").value = "";
   }
 
   function setCommentFieldHeight(commentField) {
@@ -49,26 +49,44 @@ function likePost(button) {
   }
   
   // Call the setCommentFieldHeight function whenever the comment field's content changes
-  const commentField = document.querySelector(".comment-field input");
+  const commentField = document.querySelector(".custom-comment-field input");
   commentField.addEventListener("input", () => setCommentFieldHeight(commentField));
 
-
   
+  function toggleActive(button) {
+    button.classList.toggle('active');
+    if (button.classList.contains('active')) {
+      button.style.backgroundColor = '#f0f0f0';
+      button.style.color = '#000';
+      button.style.fontWeight = 'bold';
+    } else {
+      button.style.backgroundColor = '';
+      button.style.color = '';
+      button.style.fontWeight = '';
+    }
+  }
 
-  
  // Get all "View" buttons
-var viewButtons = document.querySelectorAll('.view-button');
+var viewButtons = document.querySelectorAll('.custom-view-button');
 
 // Add a click event listener to each "View" button
 viewButtons.forEach(function(viewButton) {
   viewButton.addEventListener('click', function() {
+    // Remove the "active" class from all "View" buttons
+    viewButtons.forEach(function(button) {
+      button.classList.remove('active');
+    });
+    
+    // Add the "active" class to the clicked "View" button
+    viewButton.classList.add('active');
+
     // Create the popup container
     var popupContainer = document.createElement('div');
-    popupContainer.classList.add('popup');
+    popupContainer.classList.add('custom-popup');
 
     // Create the popup content
     var popupContent = document.createElement('div');
-    popupContent.classList.add('popup-content');
+    popupContent.classList.add('custom-popup-content');
 
     // Clone the col element
     var colElement = viewButton.closest('.col');
@@ -81,7 +99,7 @@ viewButtons.forEach(function(viewButton) {
     popupContainer.appendChild(popupContent);
 
     // Append the popup container to the modal container
-    var modalContainer = document.getElementById('modal-container');
+    var modalContainer = document.getElementById('custom-modal-container');
     modalContainer.appendChild(popupContainer);
 
     // Close the popup when clicking outside the popup content

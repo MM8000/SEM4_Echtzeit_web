@@ -116,9 +116,22 @@
   /* ... */
 }
 
-/*comment field*/
+/*card galery*/
 
-.comment-field {
-  max-height: 100px; /* Set a maximum height for the comment field */
-  overflow-y: auto; /* Add vertical scrollbars to the comment field */
+.custom-view-button.active {
+  background-color: #4B221C !important; /* Ändern Sie die Hintergrundfarbe nach Ihren Wünschen */
+  color: #fff !important; /* Ändern Sie die Schriftfarbe nach Ihren Wünschen */
+  font-weight: bold !important;
+}
+
+.custom-comment-field {
+  max-height: 200px; /* Set a maximum height for the comment field */
+  overflow: auto !important; /* Add vertical scrollbars to the comment field */
+}
+
+.custom-like-button {
+  transition: transform 0.2s ease-in-out;
+}
+.custom-like-button.clicked {
+  transform: scale(1.2) !important;
 }
