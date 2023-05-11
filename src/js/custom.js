@@ -1,5 +1,34 @@
+// someTHING!
+var imgmovement = document.getElementsByClassName("thing");
+var debounceTimer;
+
+for (var i = 0; i < imgmovement.length; i++) {
+  imgmovement[i].style.transition = "all 0.2s ease-in-out"; // add transition to all images
+  imgmovement[i].style.pointerEvents = "none"; // make the images click-through
+}
+
+document.onmousemove = function(event) {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(function() {
+    var x = event.clientX * 100 / window.innerWidth + "%";
+    var y = event.clientY * 100 / window.innerHeight + "%";
+
+    for (var i = 0; i < imgmovement.length; i++) {
+      imgmovement[i].style.left = x;
+      imgmovement[i].style.top = y;
+      imgmovement[i].style.transform = "translate(-" + x + ",-" + y + ")";
+    }
+  }, 10); // debounce time in milliseconds
+};
+
+
+
+
 // Function to handle clicking the "Like" button
 function likePost(button) {
+  // Toggle the "clicked" class on the button
+  button.classList.toggle("clicked");
+
   // Get the parent col element
   const col = button.closest(".col");
 
@@ -9,9 +38,13 @@ function likePost(button) {
   // Increment the like count by 1
   const count = parseInt(likeCount.innerText) + 1;
   likeCount.innerText = count;
+
+  // Remove the "clicked" class after a short delay
+  setTimeout(function() {
+    button.classList.remove("clicked");
+  }, 200);
 }
 
-  
 
   // Function to handle clicking the "Comment" button
   function showCommentField(button) {

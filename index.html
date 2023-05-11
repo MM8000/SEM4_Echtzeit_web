@@ -27,6 +27,11 @@
   </head>
   <body>
   
+    <!-- Must HAve -->
+    <div class="ghosting-div">
+			<img class="thing" src ="src/assets/thing_transparent.gif">
+		</div>
+
     <!-- Header/ NAV BAR -->
     <header data-bs-theme="dark">
       <div class="collapse text-bg-dark custom-headerbg" id="navbarHeader">
@@ -148,7 +153,7 @@
                     <div class="btn-group">
                       <button type="button" class="view-button btn btn-sm btn-outline-secondary custom-view-button" onclick="toggleActive(this)">View</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="showCommentField(this)">Comment</button>
-                      <button type="button" class="custom-like-btn custom-like-button btn btn-sm btn-outline-secondary" onclick="likePost(this)">
+                      <button type="button" class="like-button btn btn-sm btn-outline-secondary custom-like-btn" onclick="likePost(this)">
                         <span class="like-icon">🫀</span>
                         <span class="like-count">0</span></button>
                     </div>
@@ -263,9 +268,9 @@
                     <div class="btn-group">
                       <button type="button" class="view-button btn btn-sm btn-outline-secondary custom-view-button" onclick="toggleActive(this)">View</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="showCommentField(this)">Comment</button>
-                      <button type="button" class="custom-like-btn custom-like-button btn btn-sm btn-outline-secondary" onclick="likePost(this)">
-                        <span class="like-icon">🫀</span>
-                        <span class="like-count">0</span></button>
+                      <button type="button" class="like-button btn btn-sm btn-outline-secondary custom-like-btn" onclick="likePost(this)">
+          <span class="like-icon">🫀</span>
+          <span class="like-count">0</span>
                     </div>
                     <small class="text-body-secondary">9 mins</small>
                   </div>

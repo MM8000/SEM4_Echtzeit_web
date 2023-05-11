@@ -129,9 +129,32 @@
   overflow: auto !important; /* Add vertical scrollbars to the comment field */
 }
 
-.custom-like-button {
+.custom-like-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.like-icon {
+  display: inline-block;
   transition: transform 0.2s ease-in-out;
 }
-.custom-like-button.clicked {
-  transform: scale(1.2) !important;
+
+.custom-like-btn.clicked .like-icon {
+  transform: scale(1.5);
 }
+
+.thing {
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+  	width: 10em;
+  	height: auto;
+	z-index: 999;
+	transition: all 0.2s ease-in-out;
+	
+  }
+  
+  .ghosting-div {
+    pointer-events: none;
+  }
